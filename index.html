@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Regex Validator</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="app-title">Regex Validator</h1>
+    <p class="subtitle">Test regular expressions live with match highlighting</p>
+
+    <div class="main-layout">
+
+      <!-- LEFT PANEL -->
+      <div class="left-panel">
+
+        <!-- REGEX INPUT -->
+        <div class="input-card">
+          <label>Regular Expression</label>
+          <div class="regex-wrap">
+            <span class="regex-slash">/</span>
+            <input type="text" id="regexInput" placeholder="Enter regex..."
+                   oninput="validate()"/>
+            <span class="regex-slash">/</span>
+            <input type="text" id="flagsInput" placeholder="gim"
+                   value="g" maxlength="5" oninput="validate()"
+                   style="width:50px;"/>
+          </div>
+          <div class="regex-error" id="regexError"></div>
+        </div>
+
+        <!-- TEST STRING -->
+        <div class="input-card">
+          <label>Test String</label>
+          <textarea id="testInput" rows="6"
+            placeholder="Enter text to test against..."
+            oninput="validate()"></textarea>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="results-card" id="resultsCard">
+          <div class="result-stat" id="matchCount">
+            Enter a regex and test string to see matches
+          </div>
+          <div class="matches-list" id="matchesList"></div>
+        </div>
+
+        <!-- HIGHLIGHTED OUTPUT -->
+        <div class="input-card">
+          <label>Highlighted Matches</label>
+          <div class="highlighted-output" id="highlightedOutput">
+            Matches will be highlighted here...
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="right-panel">
+
+        <!-- COMMON PATTERNS -->
+        <div class="patterns-card">
+          <h3>Common Patterns</h3>
+          <div class="patterns-list" id="patternsList"></div>
+        </div>
+
+        <!-- CHEAT SHEET -->
+        <div class="cheatsheet-card">
+          <h3>Regex Cheat Sheet</h3>
+          <div class="cheat-grid">
+            <div class="cheat-section">
+              <h4>Character Classes</h4>
+              <div class="cheat-item"><code>.</code><span>Any character</span></div>
+              <div class="cheat-item"><code>\d</code><span>Digit [0-9]</span></div>
+              <div class="cheat-item"><code>\D</code><span>Non-digit</span></div>
+              <div class="cheat-item"><code>\w</code><span>Word char</span></div>
+              <div class="cheat-item"><code>\W</code><span>Non-word</span></div>
+              <div class="cheat-item"><code>\s</code><span>Whitespace</span></div>
+              <div class="cheat-item"><code>\S</code><span>Non-whitespace</span></div>
+            </div>
+            <div class="cheat-section">
+              <h4>Quantifiers</h4>
+              <div class="cheat-item"><code>*</code><span>0 or more</span></div>
+              <div class="cheat-item"><code>+</code><span>1 or more</span></div>
+              <div class="cheat-item"><code>?</code><span>0 or 1</span></div>
+              <div class="cheat-item"><code>{n}</code><span>Exactly n</span></div>
+              <div class="cheat-item"><code>{n,m}</code><span>Between n and m</span></div>
+              <div class="cheat-item"><code>{n,}</code><span>n or more</span></div>
+            </div>
+            <div class="cheat-section">
+              <h4>Anchors</h4>
+              <div class="cheat-item"><code>^</code><span>Start of string</span></div>
+              <div class="cheat-item"><code>$</code><span>End of string</span></div>
+              <div class="cheat-item"><code>\b</code><span>Word boundary</span></div>
+              <div class="cheat-item"><code>\B</code><span>Non-boundary</span></div>
+            </div>
+            <div class="cheat-section">
+              <h4>Groups</h4>
+              <div class="cheat-item"><code>(abc)</code><span>Capture group</span></div>
+              <div class="cheat-item"><code>(?:abc)</code><span>Non-capture</span></div>
+              <div class="cheat-item"><code>a|b</code><span>a or b</span></div>
+              <div class="cheat-item"><code>[abc]</code><span>Any of a,b,c</span></div>
+              <div class="cheat-item"><code>[^abc]</code><span>Not a,b,c</span></div>
+              <div class="cheat-item"><code>[a-z]</code><span>Range a to z</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>Day 35 of 120 · Kishalaya Sarangi · NIT Rourkela</footer>
+  <script src="script.js"></script>
+</body>
+</html>
